@@ -1,0 +1,10 @@
+build/
+tmp/
+
+*.exe
+*.out
+*.o
+*.a
+*.so
+
+*.avif~

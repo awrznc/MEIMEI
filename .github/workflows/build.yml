@@ -1,0 +1,26 @@
+name: Build
+
+on: [push]
+
+jobs:
+
+  debian-build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Get files
+      uses: actions/checkout@v2
+
+    - name: Build Docker image
+      run: |
+        docker build --no-cache --target builder -f ./tools/devenv/Dockerfile -t meimei:latest .
+
+    - name: Build OS Image
+      run: |
+        docker run --rm -v "$(pwd):/opt/meimei" --workdir="/opt/meimei" meimei:latest bash -c "mkdir -p build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release && cmake --build ."
+
+    - name: Upload archive
+      uses: actions/upload-artifact@v2
+      with:
+        name: i386-unknown-none
+        path: build/bin/meimei.iso
