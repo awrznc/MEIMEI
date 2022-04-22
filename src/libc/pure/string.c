@@ -34,9 +34,9 @@ int strcmp(const char* originalString1, const char* originalString2) {
 //   * @return 指定した文字が最初に出現する位置
 //   **/
 // char* strchr(const char* string, int searchTarget) {
-//     char charactor = (char)searchTarget;
+//     char character = (char)searchTarget;
 //     while (*string) {
-//         if(*string == charactor) return (char *)string;
+//         if(*string == character) return (char *)string;
 //         string++;
 //     }
 //     return NULL;

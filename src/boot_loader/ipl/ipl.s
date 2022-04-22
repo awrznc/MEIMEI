@@ -219,7 +219,7 @@ loop:
     cmp     $0, %al
     je      finish
 
-    // Set value of print charactor function.
+    // Set value of print character function.
     movb    $0x0E, %ah
 
     // Set color code.

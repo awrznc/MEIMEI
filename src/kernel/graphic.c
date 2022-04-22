@@ -80,13 +80,13 @@ unsigned char GraphicPut(
     int x,
     int y,
     const char color,
-    const char charactor
+    const char character
 ) {
     char data = 0x00;
     unsigned char *vram_pointer;
 
     for (int index = 0; index < 16; index++) {
-        data = font_data[((charactor-0x20)*16)+index];
+        data = font_data[((character-0x20)*16)+index];
         vram_pointer = boot_info->vram + (y + index) * boot_info->screen_x + x;
         if ((data & 0x80) != 0) vram_pointer[0] = color;
         if ((data & 0x40) != 0) vram_pointer[1] = color;

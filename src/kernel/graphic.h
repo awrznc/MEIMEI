@@ -90,7 +90,7 @@ void GraphicDrawImage(
   * @param  [in]     x         描画始点座標x
   * @param  [in]     y         描画始点座標y
   * @param  [in]     color     色
-  * @param  [in]     charactor 文字
+  * @param  [in]     character 文字
   * @return 0
   */
 unsigned char GraphicPut(
@@ -98,7 +98,7 @@ unsigned char GraphicPut(
     int x,
     int y,
     const char color,
-    const char charactor
+    const char character
 );
 
 /**
