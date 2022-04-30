@@ -20,8 +20,6 @@ WORKDIR /opt/meimei
 
 FROM builder AS server
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y lxde && \
-    apt-get install -y tigervnc-standalone-server tigervnc-common && \
-    apt-get install -y novnc websockify
+RUN apt-get install -y novnc websockify
 
 RUN apt-get install -y qemu-system-x86 qemu-system-gui qemu-utils ovmf
