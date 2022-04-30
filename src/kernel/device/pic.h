@@ -127,7 +127,7 @@
 /**
   * @brief PICを初期化する
   **/
-void PIC_InitializePIC() {
+void Initialize_PIC() {
 
     // 全ての割り込みを受け付けない
     _io_out8(PIC0_IMR, 0xff);

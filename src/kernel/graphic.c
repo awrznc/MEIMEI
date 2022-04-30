@@ -115,7 +115,7 @@ unsigned char GraphicPuts(
     return 0;
 }
 
-int Graphic_Initialize(
+int Initialize_Graphic(
     GraphicPalette* palette,
     BootInfo* bootInfo,
     unsigned char fillColor

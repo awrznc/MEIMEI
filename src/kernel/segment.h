@@ -130,7 +130,7 @@ typedef struct _segment {
 /**
   * @brief GDTとIDTを初期化する
   **/
-void Segment_InitializeSegment() {
+void Initialize_Segment() {
     Segment segment = {
         (SegmentDescriptor *)ADDRESS_GDT,
         (GateDescripter *)ADDRESS_IDT

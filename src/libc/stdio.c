@@ -32,7 +32,7 @@ static int prefix_match(char* a, char* b) {
   * @param [in] print_string 出力文字列
   **/
 static int ansi_puts( FILE *stream, char* print_string ) {
-    BootInfo* boot_info = BiosInitializeBootInfo();
+    BootInfo* boot_info = Initialize_BootInfo();
 
     for(int count = 0; *print_string != 0x00; print_string++, count++) {
 

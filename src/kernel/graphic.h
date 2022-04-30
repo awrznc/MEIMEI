@@ -124,7 +124,7 @@ unsigned char GraphicPuts(
   * @param [in] palette   グラフィックのパレット（16色）
   * @param [in] fillColor 最初に画面を塗りつぶす色
   **/
-int Graphic_Initialize(
+int Initialize_Graphic(
     GraphicPalette* palette,
     BootInfo* bootInfo,
     unsigned char fillColor

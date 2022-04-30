@@ -18,7 +18,7 @@ typedef struct _boot_info {
 /**
   * @brief 起動情報が格納されているメモリの先頭アドレスを利用して初期化を行う
   **/
-static inline BootInfo* BiosInitializeBootInfo() {
+static inline BootInfo* Initialize_BootInfo() {
     return (BootInfo*) BIOS_BOOT_ADDR;
 }
 

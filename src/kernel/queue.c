@@ -2,7 +2,7 @@
 
 #define QUEUE_FLAGS_OVERRUN 0x001
 
-void Queue8_InitializeQueue8(Queue8* fifo, int size, unsigned char* data) {
+void Initialize_Queue8(Queue8* fifo, int size, unsigned char* data) {
     fifo->data = data;
     fifo->write_point = 0;
     fifo->read_point = 0;

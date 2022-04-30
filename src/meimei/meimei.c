@@ -85,7 +85,7 @@ static int draw_break_effect(int level) {
     return 1;
 }
 
-static void MEIMEI_Initialize(MEIMEI* meimei) {
+static void Initialize_MEIMEI(MEIMEI* meimei) {
     meimei->status = MEIMEI_StatusRun;
     print_black_fill();
     printf("\033[37m\033[40m");
@@ -567,7 +567,7 @@ static int move_floor(MEIMEI* meimei) {
 int MEIMEI_Main() {
 
     MEIMEI meimei = MEIMEI_New();
-    MEIMEI_Initialize(&meimei);
+    Initialize_MEIMEI(&meimei);
 
     while ( Kernel_Status() && meimei.status == MEIMEI_StatusRun ) {
         if(!set_keyconfig(&meimei)) continue;

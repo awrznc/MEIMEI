@@ -1,7 +1,7 @@
 #ifndef INCLUDED_CURSOR
 #define INCLUDED_CURSOR
 
-void CursorInitialize(char* mouse, char mouseColor, char backgroundColor) {
+void Initialize_Cursor(char* mouse, char mouseColor, char backgroundColor) {
     static char cursor[5*5] = {
         0,1,1,1,0,
         1,1,1,1,1,

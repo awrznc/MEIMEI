@@ -51,10 +51,10 @@ typedef struct {
 
 static void initialize_device(Device* deviceObject) {
     for (int i = 0; i < 25; i++) deviceObject->cursor_fill[i] = 0x0c;
-    Queue8_InitializeQueue8(&keyinfo, 32, deviceObject->keybuf);
-    Queue8_InitializeQueue8(&mousefifo, 128, deviceObject->mousebuf);
+    Initialize_Queue8(&keyinfo, 32, deviceObject->keybuf);
+    Initialize_Queue8(&mousefifo, 128, deviceObject->mousebuf);
 
-    BootInfo* boot_info = BiosInitializeBootInfo();
+    BootInfo* boot_info = Initialize_BootInfo();
     deviceObject->cursor_x = (boot_info->screen_x - 2) / 2;
     deviceObject->cursor_y = (boot_info->screen_y - 2) / 2;
 }
@@ -64,7 +64,7 @@ Device device;
 int Kernel_Status() {
     char string[40] = { 0 };
     // char string_before[40] = { 0 };
-    // BootInfo* boot_info = BiosInitializeBootInfo();
+    // BootInfo* boot_info = Initialize_BootInfo();
     // int bottom_line = boot_info->screen_y-(16+1);
 
     _io_cli();
@@ -116,14 +116,14 @@ int Kernel_Status() {
 }
 
 static void run_system() {
-    BootInfo* boot_info = BiosInitializeBootInfo();
+    BootInfo* boot_info = Initialize_BootInfo();
     // debug(boot_info);
 
     // Device device = { 0 };
     initialize_device(&device);
 
     // カーソルの表示
-    CursorInitialize(device.cursor, 0x07, 0x00);
+    Initialize_Cursor(device.cursor, 0x07, 0x00);
     GraphicDrawImage(boot_info, device.cursor_x, device.cursor_y, 5, 5, device.cursor);
 
     // 画面の塗りつぶし
@@ -156,12 +156,12 @@ GraphicPalette palette = {
 static void initialize_system() {
 
     // Initialize.
-    BootInfo* boot_info = BiosInitializeBootInfo();
-    Segment_InitializeSegment();
-    PIC_InitializePIC();
-    Graphic_Initialize(&palette, boot_info, 0x00);
+    BootInfo* boot_info = Initialize_BootInfo();
+    Initialize_Segment();
+    Initialize_PIC();
+    Initialize_Graphic(&palette, boot_info, 0x00);
 
-    // Enable device.
+    // Allow device.
     PIC_AllowDevice();
 }
 
